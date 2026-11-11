@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090d18">
+<title>TOLLBYTHIENTRAN | 3D Studio</title>
+<style>
+:root{color-scheme:dark;--bg:#080c16;--panel:rgba(18,25,43,.82);--line:rgba(151,174,220,.15);--muted:#8996b3;--text:#edf4ff;--cyan:#65e7f4;--violet:#a58bff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#172b48 0,transparent 38%),radial-gradient(ellipse at 90% 80%,#251b48 0,transparent 35%),var(--bg);color:var(--text);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+button,input{font:inherit}button{cursor:pointer;color:inherit}.app{max-width:1500px;margin:auto;padding:22px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.13em}.logo{width:38px;height:38px;border-radius:13px;background:linear-gradient(135deg,var(--cyan),var(--violet));display:grid;place-items:center;color:#07101c;font-weight:900;box-shadow:0 0 28px #65e7f455}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:.2em;font-weight:600;margin-top:2px}.status{border:1px solid var(--line);background:#111a2b99;border-radius:999px;padding:8px 12px;color:#a9bad5;font-size:12px}.layout{display:grid;grid-template-columns:290px minmax(0,1fr) 280px;gap:15px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 55px #0003;backdrop-filter:blur(18px);min-width:0}.side{padding:17px}.section-title{font-size:11px;color:#9baac7;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin:3px 0 13px}.drop{border:1px dashed #6b8bad88;border-radius:15px;padding:20px 12px;text-align:center;background:linear-gradient(140deg,#65e7f40c,#a58bff0c);transition:.2s}.drop.over{border-color:var(--cyan);background:#65e7f418}.drop strong{display:block;margin:9px 0 4px}.drop p{color:var(--muted);font-size:12px;margin:0 0 13px}.btn{border:1px solid var(--line);border-radius:11px;padding:9px 12px;background:#1b2940;color:#eaf4ff;font-weight:650;transition:.2s}.btn:hover{border-color:#65e7f488;transform:translateY(-1px)}.btn.primary{background:linear-gradient(100deg,#55d8e8,#9a85ff);color:#07101b;border:0}.btn:disabled{opacity:.35;cursor:not-allowed;transform:none}.file-meta{margin-top:14px;padding:12px;border-radius:12px;background:#0c1423;border:1px solid var(--line);display:none}.file-meta b{display:block;overflow-wrap:anywhere}.muted{color:var(--muted);font-size:12px}.tree{margin-top:20px}.tree-list{max-height:45vh;overflow:auto;display:flex;flex-direction:column;gap:4px}.tree-row{display:flex;align-items:center;gap:7px;text-align:left;width:100%;padding:7px 8px;border:0;background:transparent;border-radius:8px;color:#bdcbe1;font-size:12px;overflow:hidden}.tree-row:hover,.tree-row.active{background:#65e7f418;color:#fff}.tree-row span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);flex:none}.viewer{overflow:hidden;display:flex;flex-direction:column;min-height:680px}.viewer-head{padding:15px 17px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:10px}.viewer-head b{font-size:13px}.tools{display:flex;gap:7px;flex-wrap:wrap}.viewport{position:relative;flex:1;min-height:540px;background:radial-gradient(ellipse at center,#182740 0,#0a1120 58%,#080d17 100%)}#stage{position:absolute;inset:0}.empty{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:25px;pointer-events:none}.empty-inner{max-width:300px}.empty-icon{font-size:38px;color:var(--cyan);margin-bottom:10px}.empty p{color:var(--muted);font-size:12px}.viewer-foot{padding:11px 16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--muted);font-size:11px;gap:12px}.right .info{padding:12px;border:1px solid var(--line);background:#0c1423;border-radius:12px;margin-bottom:10px}.right .info label{display:block;color:var(--muted);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}.right .info strong{font-size:13px;overflow-wrap:anywhere}.actions{display:grid;gap:8px;margin-top:16px}.notice{font-size:11px;color:#9baac7;line-height:1.6;margin-top:14px}.toggle{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px;color:#c6d4e9}.toggle input{accent-color:#65e7f4}.progress{height:4px;background:#24324a;border-radius:9px;overflow:hidden;margin-top:12px;display:none}.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--violet));transition:width .2s}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#18263c;border:1px solid #65e7f466;padding:10px 15px;border-radius:12px;box-shadow:0 10px 40px #0008;display:none;z-index:5;font-size:12px}
+@media(max-width:1050px){.layout{grid-template-columns:250px minmax(0,1fr)}.right{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.right .section-title,.right .actions,.right .notice{grid-column:1/-1}.right .info{margin:0}}
+@media(max-width:700px){.app{padding:13px}.top{align-items:flex-start}.status{display:none}.layout{grid-template-columns:1fr}.viewer{min-height:520px;grid-row:1}.viewport{min-height:430px}.side{padding:14px}.tree-list{max-height:180px}.right{grid-template-columns:1fr 1fr}.right .info:last-of-type{grid-column:1/-1}.viewer-head{align-items:flex-start;flex-direction:column}}
+</style>
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"}}
+</script>
+</head>
+<body>
+<div class="app">
+<header class="top">
+  <div class="brand"><div class="logo">T</div><div>TOLLBYTHIENTRAN<small>3D ASSET WORKSPACE</small></div></div>
+  <div class="status">● LOCAL WORKSPACE · FILES STAY ON YOUR DEVICE</div>
+</header>
+<main class="layout">
+  <aside class="panel side">
+    <div class="section-title">Import asset</div>
+    <div class="drop" id="drop">
+      <div style="font-size:25px;color:var(--cyan)">＋</div>
+      <strong>Thả file 3D vào đây</strong>
+      <p>Hỗ trợ GLB, GLTF, FBX, OBJ</p>
+      <button class="btn primary" id="browse">Chọn file</button>
+      <input id="file" type="file" accept=".glb,.gltf,.fbx,.obj" hidden>
+    </div>
+    <div class="file-meta" id="fileMeta"><b id="fileName">—</b><span class="muted" id="fileSize"></span></div>
+    <div class="progress" id="progress"><i id="progressBar"></i></div>
+    <div class="tree">
+      <div class="section-title">Scene hierarchy</div>
+      <div class="muted" id="treeHint">Chưa có asset. Tải một model để xem cấu trúc.</div>
+      <div class="tree-list" id="treeList"></div>
+    </div>
+  </aside>
+  <section class="panel viewer">
+    <div class="viewer-head"><b>LIVE 3D VIEWPORT <span style="color:var(--cyan)">/</span> <span class="muted" id="modelLabel">No asset loaded</span></b>
+      <div class="tools"><button class="btn" id="frameBtn" disabled>Fit view</button><button class="btn" id="wireBtn" disabled>Wireframe</button><button class="btn" id="bonesBtn" disabled>Skeleton</button></div>
+    </div>
+    <div class="viewport"><div id="stage"></div><div class="empty" id="empty"><div class="empty-inner"><div class="empty-icon">◇</div><b>Không gian 3D đang chờ bạn</b><p>Upload một model để xoay, quan sát mesh và kiểm tra hệ xương.</p></div></div></div>
+    <div class="viewer-foot"><span>DRAG: ORBIT · SCROLL: ZOOM · RIGHT DRAG: PAN</span><span id="counts">0 meshes · 0 bones</span></div>
+  </section>
+  <aside class="panel side right">
+    <div class="section-title">Inspector</div>
+    <div class="info"><label>Selected object</label><strong id="selectedName">None</strong></div>
+    <div class="info"><label>Object type</label><strong id="selectedType">—</strong></div>
+    <div class="info"><label>Children</label><strong id="selectedChildren">—</strong></div>
+    <div class="section-title" style="margin-top:17px">Display settings</div>
+    <div class="toggle"><span>Show grid</span><input type="checkbox" id="gridToggle" checked></div>
+    <div class="toggle"><span>Show skeleton</span><input type="checkbox" id="skeletonToggle"></div>
+    <div class="toggle"><span>Auto rotate</span><input type="checkbox" id="rotateToggle"></div>
+    <div class="actions"><button class="btn primary" id="exportBtn" disabled>Export as GLB ↗</button><button class="btn" id="resetBtn" disabled>Reset view</button></div>
+    <p class="notice">Model được xử lý ngay trong trình duyệt. Hãy giữ bản gốc trước khi chỉnh sửa. Công cụ này tập trung vào xem cấu trúc, kiểm tra skeleton và xuất asset 3D.</p>
+  </aside>
+</main>
+</div>
+<div class="toast" id="toast"></div>
+<script type="module">
+import * as THREE from 'three';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {FBXLoader} from 'three/addons/loaders/FBXLoader.js';
+import {OBJLoader} from 'three/addons/loaders/OBJLoader.js';
+import {GLTFExporter} from 'three/addons/exporters/GLTFExporter.js';
+
+const $=id=>document.getElementById(id);
+const stage=$('stage');
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(45,1,.01,2000);
+camera.position.set(4,3,6);
+const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.outputColorSpace=THREE.SRGBColorSpace;
+renderer.toneMapping=THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure=1.15;
+stage.appendChild(renderer.domElement);
+const controls=new OrbitControls(camera,renderer.domElement);
+controls.enableDamping=true;
+scene.add(new THREE.HemisphereLight(0xbadfff,0x182038,2));
+const key=new THREE.DirectionalLight(0xffffff,2.2);key.position.set(5,8,6);scene.add(key);
+const rim=new THREE.PointLight(0x6b8cff,18,30);rim.position.set(-4,2,-3);scene.add(rim);
+const grid=new THREE.GridHelper(20,40,0x3c6488,0x20334b);grid.material.transparent=true;grid.material.opacity=.32;scene.add(grid);
+let current=null, skeletonHelpers=[], wire=false, mixer=null, clock=new THREE.Clock(), meshCount=0,boneCount=0;
+const resize=()=>{const w=stage.clientWidth,h=stage.clientHeight;camera.aspect=w/Math.max(h,1);camera.updateProjectionMatrix();renderer.setSize(w,h,false)};
+new ResizeObserver(resize).observe(stage);resize();
+function toast(msg){$('toast').textContent=msg;$('toast').style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>$('toast').style.display='none',2600)}
+function disposeObject(obj){obj.traverse(o=>{if(o.geometry)o.geometry.dispose();if(o.material){for(const m of (Array.isArray(o.material)?o.material:[o.material]))m.dispose()}})}
+function clearModel(){if(current){scene.remove(current);disposeObject(current);current=null}skeletonHelpers.forEach(h=>{scene.remove(h);disposeObject(h)});skeletonHelpers=[];mixer=null}
+function frameObject(obj){const box=new THREE.Box3().setFromObject(obj);if(box.isEmpty())return;const size=box.getSize(new THREE.Vector3()),center=box.getCenter(new THREE.Vector3());const max=Math.max(size.x,size.y,size.z)||1;camera.position.copy(center).add(new THREE.Vector3(max*1.8,max*1.15,max*2.1));camera.near=Math.max(max/1000,.001);camera.far=max*100;camera.updateProjectionMatrix();controls.target.copy(center);controls.update()}
+function inspectTree(root){const list=$('treeList');list.innerHTML='';meshCount=0;boneCount=0;root.traverse(o=>{if(o.isMesh)meshCount++;if(o.isBone)boneCount++});$('counts').textContent=`${meshCount} meshes · ${boneCount} bones`;$('treeHint').style.display='none';
+let nodes=[];root.traverse(o=>{if(o===root||o.isMesh||o.isBone||o.isGroup)nodes.push(o)});
+nodes.slice(0,500).forEach(o=>{const row=document.createElement('button');row.className='tree-row';row.style.paddingLeft=(8+Math.min(depthOf(o),7)*12)+'px';const dot=document.createElement('i');dot.className='dot';dot.style.background=o.isBone?'#a58bff':o.isMesh?'#65e7f4':'#8192ad';const name=document.createElement('span');name.textContent=o.name||o.type;row.append(dot,name);row.onclick=()=>selectObject(o,row);list.append(row)});
+}
+function depthOf(o){let d=0;while(o.parent&&o.parent.type!=='Scene'){d++;o=o.parent}return d}
+function selectObject(o,row){document.querySelectorAll('.tree-row').forEach(x=>x.classList.remove('active'));if(row)row.classList.add('active');$('selectedName').textContent=o.name||'(unnamed)';$('selectedType').textContent=o.type;$('selectedChildren').textContent=o.children.length; if(o.isBone){const helper=skeletonHelpers.find(h=>h.skeleton?.bones.includes(o));}}
+function makeSkeletonHelpers(root){skeletonHelpers.forEach(h=>scene.remove(h));skeletonHelpers=[];root.traverse(o=>{if(o.isSkinnedMesh&&o.skeleton){const h=new THREE.SkeletonHelper(o);h.material.color.set(0xb69cff);h.material.depthTest=false;h.material.transparent=true;h.material.opacity=.95;h.renderOrder=5;h.visible=$('skeletonToggle').checked;scene.add(h);skeletonHelpers.push(h)}})}
+function loaded(obj,name,animations=[]){clearModel();current=obj;scene.add(current);current.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;if(o.material){for(const m of (Array.isArray(o.material)?o.material:[o.material])){m.side=THREE.DoubleSide}}}});if(animations.length){mixer=new THREE.AnimationMixer(current);animations.forEach(a=>mixer.clipAction(a).play())}makeSkeletonHelpers(current);frameObject(current);inspectTree(current);$('empty').style.display='none';$('fileMeta').style.display='block';$('fileName').textContent=name;$('modelLabel').textContent=name;$('fileSize').textContent='Loaded in browser';['frameBtn','wireBtn','bonesBtn','exportBtn','resetBtn'].forEach(id=>$(id).disabled=false);$('selectedName').textContent='Scene root';$('selectedType').textContent='Group';$('selectedChildren').textContent=current.children.length;toast('Đã tải model thành công')}
+async function loadFile(file){if(!file)return;const ext=file.name.split('.').pop().toLowerCase();if(!['glb','gltf','fbx','obj'].includes(ext)){toast('Định dạng chưa được hỗ trợ');return}
+$('progress').style.display='block';$('progressBar').style.width='35%';
+try{let obj,animations=[];const url=URL.createObjectURL(file);if(ext==='glb'||ext==='gltf'){const loader=new GLTFLoader();const gltf=await loader.loadAsync(url);obj=gltf.scene;animations=gltf.animations||[]}else if(ext==='fbx'){obj=await new FBXLoader().loadAsync(url)}else{obj=await new OBJLoader().loadAsync(url)}$('progressBar').style.width='100%';loaded(obj,file.name,animations);if(ext==='gltf'||ext==='obj')toast('Đã nhập model. Khi dùng GLTF nhiều file, hãy giữ các texture cạnh file gốc.');setTimeout(()=>URL.revokeObjectURL(url),60000)}catch(e){console.error(e);toast('Không thể đọc file: '+(e.message||'lỗi định dạng'))}finally{setTimeout(()=>$('progress').style.display='none',500)}}
+$('browse').onclick=()=>$('file').click();$('file').onchange=e=>loadFile(e.target.files[0]);
+const drop=$('drop');['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('over')}));['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('over')}));drop.addEventListener('drop',e=>loadFile(e.dataTransfer.files[0]));
+$('gridToggle').onchange=e=>grid.visible=e.target.checked;
+$('skeletonToggle').onchange=e=>skeletonHelpers.forEach(h=>h.visible=e.target.checked);
+$('bonesBtn').onclick=()=>{$('skeletonToggle').checked=!$('skeletonToggle').checked;$('skeletonToggle').dispatchEvent(new Event('change'))};
+$('wireBtn').onclick=()=>{wire=!wire;if(current)current.traverse(o=>{if(o.isMesh)for(const m of (Array.isArray(o.material)?o.material:[o.material]))m.wireframe=wire});$('wireBtn').textContent=wire?'Solid view':'Wireframe'};
+$('frameBtn').onclick=()=>current&&frameObject(current);$('resetBtn').onclick=()=>current&&frameObject(current);
+$('rotateToggle').onchange=e=>{renderer.domElement.dataset.rotate=e.target.checked?'1':'0'};
+$('exportBtn').onclick=()=>{if(!current)return;const btn=$('exportBtn');btn.disabled=true;new GLTFExporter().parse(current,result=>{const blob=result instanceof ArrayBuffer?new Blob([result],{type:'model/gltf-binary'}):new Blob([JSON.stringify(result)],{type:'model/gltf+json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='TOLLBYTHIENTRAN_edited.glb';a.click();URL.revokeObjectURL(a.href);btn.disabled=false;toast('Đã xuất asset 3D')},err=>{console.error(err);btn.disabled=false;toast('Xuất file thất bại')},{binary:true,onlyVisible:true,trs:true});};
+function animate(){requestAnimationFrame(animate);const dt=clock.getDelta();if(mixer)mixer.update(dt);if(current&&renderer.domElement.dataset.rotate==='1')current.rotation.y+=dt*.22;controls.update();renderer.render(scene,camera)}animate();
+</script>
+</body>
+</html>
